@@ -1,0 +1,93 @@
+@use "./../../../../public/colors.scss";
+#container{
+  pointer-events: none;
+  justify-content: space-between;
+  padding: 50px 10px;
+}
+
+#d-pad-container{
+  $tamaño-d-pad: 130px;
+  $padding: 5px;
+  position: relative;
+  border: 3px solid colors.$accent-1-contrast;
+  width: $tamaño-d-pad;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: $padding;
+  >div{
+    $ancho-cruz: 40px;
+    position: absolute;
+    width: $ancho-cruz;
+    background-color: colors.$primary;
+    height: $tamaño-d-pad;
+    left: calc($tamaño-d-pad / 2 - $ancho-cruz / 2 + $padding);
+    &:last-child{
+      rotate: 90deg;
+    }
+  }
+}
+
+
+#x-o-container{
+  translate: 0 40px;
+}
+
+#x-o-borde-container{
+  border: 3px solid colors.$accent-1-contrast;
+  border-radius: 2rem;
+  padding: 5px;
+  rotate: -45deg;
+  width: 150px;
+}
+
+.boton-redondo{
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: colors.$accent-2;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  span{
+    translate: -10px 60px;
+    rotate: 45deg;
+    font-weight: bolder;
+  }
+}
+
+#botones-start-container{
+  margin: auto;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  div{
+    translate: 0 70px;
+    margin: 0;
+  }
+}
+
+.boton-alargado{
+  width: 80px;
+  height: 10px;
+  rotate: -45deg;
+  border-radius: 2rem;
+  border: 3px solid colors.$primary;
+  display: flex;
+  justify-content: center;
+  span{
+    translate: 0 14px;
+    font-weight: bolder;
+  }
+}
+
+#parlante-container{
+  width: 100px;
+  rotate: 45deg;
+  margin-left: auto;
+  translate: 0 60px;
+  div{
+    aspect-ratio: 9;
+    margin: 8px;
+    border-radius: 2rem;
+    border: 3px solid colors.$primary;
+  }
+}

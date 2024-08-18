@@ -1,0 +1,20 @@
+
+
+@if (mostrar()) {
+    <div id="fondo" @fadeInOut>
+
+    </div>
+    <div id="container">
+        <div @inOutAnimation>
+            <ng-content select="[primario]"></ng-content>
+        </div>
+        <div @inOutAnimation2>
+            <ng-content select="[secundario]"></ng-content>
+        </div>
+        <div id="pie" @inOutAnimation3>
+            <ng-content select="[pie]"></ng-content>
+        </div>
+    </div>
+}
+
+

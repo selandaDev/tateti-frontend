@@ -1,0 +1,68 @@
+
+<div id="container">
+    <app-detalle-partida/>
+    <app-tablero/>
+</div>
+
+<app-modal-fullscreen [mostrar]="mostrarModal()">
+    @switch (salaService.estado()) {
+        @case ("ESPERANDO_COMPAÑERO") {
+            <h2 primario>Esperando Contrincante</h2>
+        }
+        @case ("VICTORIA_P1") {
+            <h2 primario>JUGADOR 1 GANÓ LA RONDA</h2>
+        }
+        @case ("VICTORIA_P2") {
+            <h2 primario>JUGADOR 2 GANÓ LA RONDA</h2>
+        }
+        @case ("VICTORIA_FINAL_P1") {
+            <h2 primario>JUGADOR 1 GANÓ LA PARTIDA</h2>
+        }
+        @case ("VICTORIA_FINAL_P2") {
+            <h2 primario>JUGADOR 2 GANÓ LA PARTIDA</h2>
+        }
+        @case ("EMPATE") {
+            <h2 primario>EMPATE</h2>
+        }
+        @case ("ABANDONADO") {
+            <h2 primario>El contrincante abandonó la partida</h2>
+        }
+    }
+
+    @switch (salaService.estado()) {
+        @case ("ESPERANDO_COMPAÑERO") {
+            <p secundario><img src="loadingDots.svg" alt=""></p>
+        }
+        @case ("VICTORIA_P1") {
+            <button secundario (click)="nuevaRonda()" class="boton">Nueva Ronda</button>
+        }
+        @case ("VICTORIA_P2") {
+            <button secundario (click)="nuevaRonda()" class="boton">Nueva Ronda</button>
+        }
+        @case ("VICTORIA_FINAL_P1") {
+            <button secundario (click)="nuevaRonda()" class="boton">Nueva Partida</button>
+        }
+        @case ("VICTORIA_FINAL_P2") {
+            <button secundario (click)="nuevaRonda()" class="boton">Nueva Partida</button>
+        }
+        @case ("EMPATE") {
+            <button secundario (click)="nuevaRonda()" class="boton">Nueva Ronda</button>
+        }
+        @case ("ABANDONADO") {
+            <a secundario class="boton" [routerLink]="['/']">Salir de la sala</a>
+        }
+    }
+
+    @if (!salaService.publica() && this.estadoAnterior() === "ESPERANDO_COMPAÑERO") {
+        <div pie>
+            @if (linkCopiado()) {
+                <span>✔ Copiado!</span>
+            }
+            <button id="boton-copiar" (click)="copiarLink()" class="boton">
+                🔗
+                <small>Copiar Link de Invitación</small>
+            </button>
+        </div>
+    }
+
+</app-modal-fullscreen>

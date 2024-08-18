@@ -1,0 +1,57 @@
+@use "../public/colors.scss";
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+* {
+  font-family: "JetBrains Mono", monospace;
+  color: colors.$primary;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+.flex-apart{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+.italic{
+  font-style: italic;
+}
+
+.boton{
+  background-color: transparent;
+  border: 3px solid colors.$primary;
+  border-radius: 30px;
+  padding: 15px 30px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  min-width: 200px;
+  text-align: center;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  &:hover
+  {
+    background-color: colors.$primary;
+    color: colors.$background;
+  }
+}
+
+
+@media(width <= 600px) {
+  body{
+    margin: 0;
+  };
+}

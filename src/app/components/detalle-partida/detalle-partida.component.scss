@@ -1,0 +1,49 @@
+@use "../../../../public/colors.scss";
+
+
+
+section{
+    width: 100%;
+    margin: auto;
+}
+
+.jugador-container{
+    font-weight: bold;
+    &:nth-child(1){
+        text-align: start;
+    }
+    &:nth-child(2){
+        text-align: end;
+    }
+}
+
+.corazon-container{
+    border-bottom: 2px solid colors.$accent-2;
+    color: colors.$accent-2;
+    font-size: 1.5rem;
+}
+
+.marca-jugador{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    text-align: center;
+    &.activo{
+        background-color: colors.$accent-1;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+}
+}
+
+p{
+    margin: 0;
+}
+
+.turno{
+    font-size: xx-large;
+    text-align: center;
+}
